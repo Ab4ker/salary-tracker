@@ -1,24 +1,7 @@
-/* src/App.module.css */
-
 /* Корневой контейнер приложения */
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-/* Основной контент (обёртка для страниц) */
-.main {
-  flex: 1;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--spacing-xl);
-}
-
-/* Адаптивность: уменьшаем отступы на мобильных */
-@media (max-width: 768px) {
-  .main {
-    padding: var(--spacing-md);
-  }
+  background-color: var(--color-background);
 }

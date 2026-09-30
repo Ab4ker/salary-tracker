@@ -1,5 +1,3 @@
-/* src/components/Header/Header.module.css */
-
 /* Контейнер хедера */
 .header {
   background-color: var(--color-surface);
@@ -14,10 +12,11 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-md) var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-xl);
 }
 
 /* Логотип/название приложения */
@@ -35,10 +34,11 @@
   font-size: var(--font-size-2xl);
 }
 
-/* Навигационное меню */
+/* Навигация */
 .nav {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
+  align-items: center;
 }
 
 /* Ссылка навигации */
@@ -48,33 +48,16 @@
   color: var(--color-text-secondary);
   font-weight: 500;
   transition: all 0.2s ease;
-  position: relative;
+  font-size: var(--font-size-base);
 }
 
 .navLink:hover {
   color: var(--color-primary);
-  background-color: var(--color-bg);
+  background-color: var(--color-background);
 }
 
 /* Активная ссылка */
 .navLinkActive {
   color: var(--color-primary);
-  background-color: var(--color-primary);
-  color: white;
-}
-
-/* Адаптивность: скрытие навигации на мобильных */
-@media (max-width: 768px) {
-  .container {
-    padding: var(--spacing-sm) var(--spacing-md);
-  }
-
-  .nav {
-    gap: var(--spacing-sm);
-  }
-
-  .navLink {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: var(--font-size-sm);
-  }
+  background-color: var(--color-background);
 }

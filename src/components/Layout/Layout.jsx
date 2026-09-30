@@ -1,18 +1,14 @@
-// src/components/Layout/Layout.jsx
-
-import React from 'react'
-import Header from '../Header/Header'
-import styles from './Layout.module.css'
+import React from "react";
+import Header from "../Header/Header";
+import styles from "./Layout.module.css";
 
 function Layout({ children }) {
   return (
     <div className={styles.layout}>
       <Header />
-      <main className={styles.main}>
-        {children}
-      </main>
+      <main className={styles.main}>{children}</main>
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

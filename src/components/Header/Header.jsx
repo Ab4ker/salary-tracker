@@ -1,8 +1,6 @@
-// src/components/Header/Header.jsx
-
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styles from './Header.module.css'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styles from "./Header.module.css";
 
 function Header() {
   return (
@@ -12,31 +10,31 @@ function Header() {
           <span className={styles.logoIcon}>💰</span>
           <span>Salary Tracker</span>
         </div>
-        
+
         <nav className={styles.nav}>
-          <NavLink 
-            to="/" 
-            end
-            className={({ isActive }) => 
-              isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`
             }
+            end
           >
             Главная
           </NavLink>
-          
-          <NavLink 
+
+          <NavLink
             to="/history"
-            className={({ isActive }) => 
-              isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink
+            className={({ isActive }) =>
+              `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`
             }
           >
             История
           </NavLink>
-          
-          <NavLink 
+
+          <NavLink
             to="/analytics"
-            className={({ isActive }) => 
-              isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink
+            className={({ isActive }) =>
+              `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`
             }
           >
             Аналитика
@@ -44,7 +42,7 @@ function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
