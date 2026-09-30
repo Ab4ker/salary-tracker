@@ -1,0 +1,137 @@
+
+/* ==========================================
+   1. Современная цветовая палитра и переменные
+   ========================================== */
+:root {
+  /* Фоны */
+  --bg-gradient-start: #0f172a; /* Глубокий тёмно-синий */
+  --bg-gradient-end: #1e1b4b;   /* Тёмный индиго */
+  
+  /* Эффект стекла (Glassmorphism) */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  
+  /* Акцентные цвета */
+  --color-primary: #3b82f6;     /* Синий */
+  --color-success: #10b981;     /* Изумрудный (доходы) */
+  --color-danger: #ef4444;      /* Красный (расходы) */
+  --color-warning: #f59e0b;     /* Янтарный */
+  
+  /* Текст */
+  --text-primary: #f8fafc;      /* Почти белый */
+  --text-secondary: #94a3b8;    /* Серый */
+  
+  /* Отступы и скругления */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* ==========================================
+   2. Базовые настройки страницы и фон
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Красивый градиентный фон */
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background-attachment: fixed; /* Фон не двигается при скролле */
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark; /* Делает стандартные элементы (календари, селекты) тёмными */
+}
+
+/* Декоративные светящиеся сферы на фоне (для глубины) */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+body::before {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+}
+
+body::after {
+  bottom: -10%;
+  right: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, var(--color-success) 0%, transparent 70%);
+}
+
+/* ==========================================
+   3. Утилитарные классы для Glassmorphism
+   ========================================== */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: var(--glass-hover);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   4. Кастомный скроллбар (чтобы не выбивался)
+   ========================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================
+   5. Улучшение стандартных элементов форм
+   ========================================== */
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.98);
+}
